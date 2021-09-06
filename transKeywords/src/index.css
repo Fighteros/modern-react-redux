@@ -1,0 +1,20 @@
+body {
+  padding: 12px;
+}
+
+.container {
+  margin: 10px 20px;
+}
+
+input {
+  margin: 8px 0;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+}
+
+.title {
+  margin-top: 10px;
+}
