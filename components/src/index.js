@@ -10,7 +10,18 @@ import faker from 'faker'
 const App = () => {
     return (
         <div className="ui container comments">
+
             <ApprovalCard>
+                <div>
+                    <h4>
+                        Warning!
+                    </h4>
+                    Are You Sure you want To do this?
+                </div>
+            </ApprovalCard>
+
+            <ApprovalCard>
+
                 {/* as a prop */}
                 <CommentDetail
                     author="Sam"
@@ -19,20 +30,23 @@ const App = () => {
                     avatar={faker.image.avatar()}
                 />
             </ApprovalCard>
-            <CommentDetail
-                author="Alex"
-                timeAgo="Today at 2:00AM"
-                content="i like the subject"
-                avatar={faker.image.avatar()}
+            <ApprovalCard>
+                <CommentDetail
+                    author="Alex"
+                    timeAgo="Today at 2:00AM"
+                    content="i like the subject"
+                    avatar={faker.image.avatar()}
 
-            />
-            <CommentDetail
-                author="Jane"
-                timeAgo="Yesterday at 5:00PM"
-                content="i like the writing"
-                avatar={faker.image.avatar()}
-
-            />
+                />
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail
+                    author="Jane"
+                    timeAgo="Yesterday at 5:00PM"
+                    content="i like the writing"
+                    avatar={faker.image.avatar()}
+                />
+            </ApprovalCard>
         </div>
     );
 };
