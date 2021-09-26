@@ -28,30 +28,20 @@ class App extends React.Component {
             lat : null,
             errorMessage: ''
         };
-
+    }
+    
+    componentDidMount() {
         // get current physical position
         window.navigator.geolocation.getCurrentPosition(
             // at success of getting location
-            (position) => {
-                // we set State
-                this.setState({
-                    lat: position.coords.latitude
-                });
-            },
+            position => this.setState({lat: position.coords.latitude}),
             // at failure of getting location
             // when calling setState we just write things that we want to update
             //  anyother thing in the object will not be touched!
-            (err) => {
-                this.setState({
-                    errorMessage : err.message    
-                })
-            }
+            err => this.setState({errorMessage : err.message})
         );
     }
-    
-/*     componentDidMount() {
-        console.log('Component was rendered to the screen')
-    }
+    /*
     
     componentDidUpdate() {
         console.log('Component was updated - it rerendered')
