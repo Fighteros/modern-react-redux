@@ -25,7 +25,8 @@ class App extends React.Component {
         // to initialize state and only time we do direct assignment
         // to the state
         this.state = {
-            lat : null, 
+            lat : null,
+            errorMessage: ''
         };
 
         // get current physical position
@@ -38,14 +39,26 @@ class App extends React.Component {
                 });
             },
             // at failure of getting location
-            (err) => console.log(err)
+            // when calling setState we just write things that we want to update
+            //  anyother thing in the object will not be touched!
+            (err) => {
+                this.setState({
+                    errorMessage : err.message    
+                })
+            }
         );
     }
 
     // React requirement 
     // render get called frequantly - performance -; 
     render() {
-        return <div>Latitude: {this.state.lat} </div>  
+        return (
+            <div>
+                Latitude: {this.state.lat} 
+                <br />
+                {this.state.errorMessage !== '' && `Error: ${this.state.errorMessage}`}
+            </div>  
+        );
     }  
 }
 
