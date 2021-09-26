@@ -19,7 +19,7 @@ const App = () => {
 
 
 class App extends React.Component {
-    
+/*     
     constructor(props) {
         super(props);
         // to initialize state and only time we do direct assignment
@@ -28,7 +28,9 @@ class App extends React.Component {
             lat : null,
             errorMessage: ''
         };
-    }
+    } */
+
+    state = { lat: null, errorMessage : ''};
     
     componentDidMount() {
         // get current physical position
