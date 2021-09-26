@@ -21,15 +21,21 @@ class App extends React.Component {
     
     constructor(props) {
         super(props);
-        // to initialize state
+        // to initialize state and only time we do direct assignment
+        // to the state
         this.state = {
             lat : null, 
         };
-        
+
         // get current physical position
         window.navigator.geolocation.getCurrentPosition(
             // at success of getting location
-            (position) => console.log(position),
+            (position) => {
+                // we set State
+                this.setState({
+                    lat: position.coords.latitude
+                });
+            },
             // at failure of getting location
             (err) => console.log(err)
         );
