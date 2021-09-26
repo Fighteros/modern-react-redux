@@ -52,13 +52,15 @@ class App extends React.Component {
     // React requirement 
     // render get called frequantly - performance -; 
     render() {
-        return (
-            <div>
-                Latitude: {this.state.lat} 
-                <br />
-                {this.state.errorMessage !== '' && `Error: ${this.state.errorMessage}`}
-            </div>  
-        );
+        if (this.state.errorMessage && !this.state.lat){
+            return <div>Error: {this.state.errorMessage} </div>
+        }
+
+        if(!this.state.errorMessage && this.state.lat) {
+            return <div>Latitude: {this.state.lat}</div>
+        }
+
+        return <div>Loading !</div>
     }  
 }
 
