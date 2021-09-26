@@ -25,18 +25,20 @@ class App extends React.Component {
         this.state = {
             lat : null, 
         };
+        
+        // get current physical position
+        window.navigator.geolocation.getCurrentPosition(
+            // at success of getting location
+            (position) => console.log(position),
+            // at failure of getting location
+            (err) => console.log(err)
+        );
     }
 
     // React requirement 
+    // render get called frequantly - performance -; 
     render() {
-        // get current physical position
-         window.navigator.geolocation.getCurrentPosition(
-        // at success of getting location
-        (position) => console.log(position),
-        // at failure of getting location
-        (err) => console.log(err)
-    );
-        return <div>Latitude: </div>  
+        return <div>Latitude: {this.state.lat} </div>  
     }  
 }
 
