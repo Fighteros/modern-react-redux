@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import SeasonDisplay from './SeasonDisplay'
+import Spinner from './Spinner';
 /* 
 const App = () => {
 
@@ -49,9 +50,7 @@ class App extends React.Component {
         console.log('Component was updated - it rerendered')
     } */
 
-    // React requirement 
-    // render get called frequantly - performance -; 
-    render() {
+    renderContent() {
         if (this.state.errorMessage && !this.state.lat) {
             return <div>Error: {this.state.errorMessage} </div>
         }
@@ -60,7 +59,14 @@ class App extends React.Component {
             return <SeasonDisplay lat={this.state.lat} />
         }
 
-        return <div><span>  Loading ! <i className="notched circle loading icon"></i></span></div>
+        return <Spinner message="Please Allow Location Request" />
+    }
+    // React requirement 
+    // render get called frequantly - performance -; 
+    render() {
+        return <div className="border red">
+            {this.renderContent()}
+        </div>
     }
 }
 
