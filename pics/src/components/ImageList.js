@@ -1,14 +1,15 @@
 import React from 'react'
-
+import './ImageList.css'
+import ImageCard from './ImageCard'
 
 // key in every element of lists as it's 
 // important to performance
 const ImageList = (props) => {
-    const images = props.images.map(({ description, id, urls }) => {
-        return <img src={urls.regular} key={id} alt={description} />
+    const images = props.images.map((image) => {
+        return <ImageCard key={image.id} image={image} />
     });
 
-    return <div>{images}</div>;
+    return <div className="image-list" >{images}</div>;
 };
 
 export default ImageList
