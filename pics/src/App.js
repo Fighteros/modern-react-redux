@@ -1,6 +1,8 @@
 import React from 'react'
 import Unspalsh from './api/Unspalsh'
 import SearchBar from './components/SearchBar'
+import ImaageList from './components/ImageList'
+
 /* 
 const App = () => {
 
@@ -44,7 +46,7 @@ class App extends React.Component {
         return (
             <div className="ui container" style={{ marginTop: '10px' }}>
                 <SearchBar onSubmit={this.onSearchSubmit} />
-                Found: {this.state.imgList.length}
+                <ImaageList images={this.state.imgList} />
             </div>
         );
     }
